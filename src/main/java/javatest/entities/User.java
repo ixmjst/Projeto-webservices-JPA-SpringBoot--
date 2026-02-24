@@ -1,4 +1,4 @@
-package javatest;
+package javatest.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,25 +12,35 @@ public class User implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	private String name;
 	private String email;
+
+	
+	
 
 	public User() {
 
 	}
+	public User( String name, String email) {
+		super();
+		this.id = null;
+		this.name = name;
+		this.email = email;
+	}
 
-	public User(int id, String name, String email) {
+
+	public User(Long id, String name, String email) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
    
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
      
