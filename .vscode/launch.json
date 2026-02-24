@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-aplication<jpamaven>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "app.aplication",
+            "projectName": "jpamaven",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
