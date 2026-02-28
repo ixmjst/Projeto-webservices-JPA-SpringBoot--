@@ -1,11 +1,17 @@
 package javatest.entities;
 
+import java.util.ArrayList;
+
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "tb_users")
 public class User implements java.io.Serializable {
@@ -15,8 +21,9 @@ public class User implements java.io.Serializable {
 	private Long id;
 	private String name;
 	private String email;
-
-	
+@JsonIgnore
+@OneToMany(mappedBy = "client")
+	private List<Order> orders = new ArrayList<>();
 	
 
 	public User() {
@@ -59,7 +66,13 @@ public class User implements java.io.Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+  
+	public List<Order> getOrders() {
+		return orders;
+	}
+	public void setOrders(ArrayList<Order> orders) {
+		this.orders = orders;
+	}
 	@Override
 	public String toString() {
 		return "User [id:" + id + ", name:" + name + ", email:" + email + "]";
