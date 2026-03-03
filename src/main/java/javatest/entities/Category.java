@@ -1,5 +1,7 @@
 package javatest.entities;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 import java.io.Serializable;
 import jakarta.persistence.Entity;
@@ -16,6 +18,8 @@ public class Category implements Serializable {
 	private Long id;
 	private String name;
 	
+	
+	private Set <Product> products = new HashSet();
 	
 	public Category() {
 		super();
@@ -47,6 +51,11 @@ public class Category implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public Set <Product> getProducts() {
+		return products;
+	}
+
+
 
 
 	@Override
@@ -66,6 +75,8 @@ public class Category implements Serializable {
 		Category other = (Category) obj;
 		return Objects.equals(id, other.id) && Objects.equals(name, other.name);
 	}
+
+
 	
-	
+
 }
