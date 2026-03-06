@@ -1,5 +1,7 @@
 package javatest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -10,7 +12,7 @@ import javatest.entities.pk.OrderItemPK;
 public class OrderItem implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 @EmbeddedId
-private OrderItemPK id = new OrderItemPK();
+private OrderItemPK id=new OrderItemPK();
 private Integer quantity;
 private Double price;
 public OrderItem() {
@@ -36,6 +38,7 @@ public Double getPrice() {
 public void setPrice(Double price) {
 	this.price = price;
 }
+@JsonIgnore
 public Order getOrder() {
 	return id.getOrder();}
 
