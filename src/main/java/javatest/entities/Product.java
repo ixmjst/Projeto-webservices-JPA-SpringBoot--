@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -85,6 +88,7 @@ public void setImgUrl(String imgUrl) {
 public Set<Category> getCategories() {
 	return categories;
 }
+@JsonIgnore
 public Set<Order> getOrders(){
 	Set<Order> set = new HashSet<>();
 	for(OrderItem x : items) {
