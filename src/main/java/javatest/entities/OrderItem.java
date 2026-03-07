@@ -35,6 +35,9 @@ public void setQuantity(Integer quantity) {
 public Double getPrice() {
 	return price;
 }
+public double getSubtotal() {
+	return price*quantity;
+}
 public void setPrice(Double price) {
 	this.price = price;
 }
